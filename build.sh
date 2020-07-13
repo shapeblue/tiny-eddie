@@ -66,6 +66,7 @@ qemu-img convert -f qcow2 -O raw $DISK_NAME img.raw
 vhd-util convert -s 0 -t 1 -i img.raw -o stagefixed.vhd
 faketime '2010-01-01' vhd-util convert -s 1 -t 2 -i stagefixed.vhd -o eddie-xen.vhd
 rm -f *.bak
+bzip2 eddie-xen.vhd
 
 echo "Converting to ova/VMware"
 qemu-img convert -f qcow2 -O vmdk $DISK_NAME eddie-vmware.vmdk
