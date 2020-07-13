@@ -18,9 +18,11 @@ lsof
 musl
 net-tools
 nftables
+open-vm-tools
 openssh
 openssl
 python2
+qemu-guest-agent
 rsync
 sed
 socat
@@ -29,5 +31,6 @@ tar
 unzip
 virt-what
 wget
+xe-guest-utilities
 zip
 zlib
