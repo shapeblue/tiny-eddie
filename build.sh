@@ -60,6 +60,7 @@ time sudo ./alpine-make-vm-image \
 
 echo "Converting to qcow2/KVM"
 qemu-img convert -o compat=0.10 -f qcow2 -c -O qcow2 $DISK_NAME eddie-kvm.qcow2
+bzip2 eddie-kvm.qcow2
 
 echo "Converting to vhd/XenServer"
 qemu-img convert -f qcow2 -O raw $DISK_NAME img.raw
@@ -73,6 +74,6 @@ qemu-img convert -f qcow2 -O vmdk $DISK_NAME eddie-vmware.vmdk
 chmod 666 eddie-vmware.vmdk
 stage_vmx eddie-vmware eddie-vmware.vmdk
 ovftool eddie-vmware.vmx eddie-vmware.ova
-rm -f *vmx *vmdk
+rm -f *vmx *vmdk eddie-kvm.qcow2
 
 chmod +r eddie*
